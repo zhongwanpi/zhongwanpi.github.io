@@ -824,7 +824,7 @@ export default () => {
 					player.addMark("gzxionghuo_used", 1, false);
 					player.addSkill("gzxionghuo_effect");
 					const targets = player.getStorage("gzxionghuo_effect").slice().concat([target]);
-					player.setStorage("gzxionghuo_effect",targets,true);
+					player.setStorage("gzxionghuo_effect", targets, true);
 				},
 				ai: {
 					order: 9,
@@ -859,7 +859,7 @@ export default () => {
 									player.unmarkAuto("gzxionghuo_effect", [target]);
 								}
 								while (num > 0) {
-									num --;
+									num--;
 									switch (get.rand(1, 3)) {
 										case 1:
 											player.line(target, "fire");

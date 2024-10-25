@@ -725,7 +725,7 @@ const translates = {
 	dc_sb_huanggai: "新杀谋黄盖",
 	dc_sb_huanggai_prefix: "新杀谋",
 	dcsblieji: "烈计",
-	dcsblieji_info: "当你使用锦囊牌时，你可以令手牌中所有伤害牌造成的伤害+1直到回合结束。",
+	dcsblieji_info: "当你使用锦囊牌后，你可以令手牌中所有伤害牌造成的伤害+1直到回合结束。",
 	dcsbquzhou: "趋舟",
 	dcsbquzhou_info: "出牌阶段限一次，你可以亮出牌堆顶的一张牌，然后若此牌：为【杀】，你使用此牌；不为【杀】，你选择一项：①获得所有亮出的牌；②若亮出的牌数小于存活角色数，重复此流程。",
 };
