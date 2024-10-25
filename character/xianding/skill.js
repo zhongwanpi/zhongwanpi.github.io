@@ -124,12 +124,12 @@ const skills = {
 					ui.arena.classList.remove("thrownhighlight");
 				}, videoId);
 				game.addVideo("judge2", null, videoId);
-				if (card.name === "sha" && player.hasUseTarget(card)) {
+				if (card.name === "sha") {
 					if (cards.length) {
 						game.broadcastAll(() => ui.clear());
 						await game.cardsDiscard(cards);
 					}
-					await player.chooseUseTarget(card, true, false);
+					if (player.hasUseTarget(card)) await player.chooseUseTarget(card, true, false);
 					break;
 				} else {
 					cards.add(card);
