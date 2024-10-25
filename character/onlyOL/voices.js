@@ -1,4 +1,9 @@
 export default {
+	"#olsbliwen1": "伐竹筑学宫，大庇天下士子。",
+	"#olsbliwen2": "学而不厌，诲人不倦，何有于我哉。",
+	"#olsbzhengyi1": "保纳舍藏者，融也，当坐之。",
+	"#olsbzhengyi2": "子曰当仁不让，当义，亦不能让。",
+	"#ol_sb_kongrong:die": "为父将去，子何以不辞？",
 	"#olsbhulie1": "匹夫犯我，吾必斩之！",
 	"#olsbhulie2": "鼠辈！这一刀下去定让你看不到明天的太阳。",
 	"#olsbhulie3": "这大汉，就是我江东子弟的天下！",
