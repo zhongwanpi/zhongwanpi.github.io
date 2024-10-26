@@ -1121,6 +1121,7 @@ export class Get extends GetCompatible {
 		if (!require) return "";
 		var interfaces = require("os").networkInterfaces();
 		for (var devName in interfaces) {
+			if (devName.includes("VMware")) continue;
 			var iface = interfaces[devName];
 			for (var i = 0; i < iface.length; i++) {
 				var alias = iface[i];
