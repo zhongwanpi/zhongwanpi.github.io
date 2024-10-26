@@ -3338,8 +3338,8 @@ export default () => {
 								character: ["re_sp_zhugeliang", "yujin_yujin", "re_zhangliao", "re_lusu"],
 								lib: {
 									character: {
-										re_sp_zhugeliang: ["male", "shu", 3, ["tiaoxin", "bazhen", "feiying"], []],
-										yujin_yujin: ["male", "wei", 4, ["jiangchi", "danshou"], []],
+										re_sp_zhugeliang: ["male", "shu", 3, ["tiaoxin", "bazhen", "feiying"], ["name:诸葛|亮"]],
+										yujin_yujin: ["male", "wei", 4, ["jiangchi", "danshou"], ["die:xin_yujin.mp3"]],
 										re_zhangliao: ["male", "wei", 4, ["benxi", "tuifeng", "qingxi"], []],
 										re_lusu: ["male", "wu", 3, ["kaikang", "shenxian"], []],
 									},
@@ -3358,7 +3358,7 @@ export default () => {
 								lib: {
 									character: {
 										re_huangzhong: ["male", "shu", 4, ["yingjian", "weikui", "gzyinghun"], []],
-										re_xiahouyuan: ["male", "wei", 4, ["benxi", "yaowu", "dujin", "juesi"], []],
+										re_xiahouyuan: ["male", "wei", 4, ["benxi", "yaowu", "dujin", "juesi"], ["name:夏侯|渊"]],
 										zhanghe: ["male", "wei", 4, ["kaikang", "xingshang", "zhiheng"], []],
 										xin_fazheng: ["male", "shu", 4, ["xinfu_zhanji", "nzry_chenglve", "yiji"], []],
 									},
@@ -3378,7 +3378,7 @@ export default () => {
 									character: {
 										re_caocao: ["male", "wei", 4, ["fankui", "zhuiji", "duanbing"], []],
 										xin_yuanshao: ["male", "qun", "3/6", ["reluanji", "kuanggu", "benghuai", "weizhong"], []],
-										guotufengji: ["male", "qun", 2, ["sijian", "jigong", "shifei", "jianying"], []],
+										guotufengji: ["male", "qun", 2, ["sijian", "jigong", "shifei", "jianying"], ["name:null|null"]],
 										re_guojia: ["male", "wei", 3, ["yiji", "sanyao", "gongxin"], []],
 									},
 									translate: {
@@ -3395,7 +3395,7 @@ export default () => {
 								character: ["chunyuqiong", "sp_xuyou", "re_xuhuang", "gaolan"],
 								lib: {
 									character: {
-										chunyuqiong: ["male", "qun", 8, ["ranshang", "duliang", "jiuchi"], []],
+										chunyuqiong: ["male", "qun", 8, ["ranshang", "duliang", "jiuchi"], ["name:淳于|琼"]],
 										sp_xuyou: ["male", "qun", 3, ["qice", "lianying", "nzry_jianxiang"], []],
 										re_xuhuang: ["male", "wei", 4, ["shenduan", "xiaoguo", "nzry_juzhan"], []],
 										gaolan: ["male", "qun", 4, ["yuanhu", "shensu", "benyu", "suishi"], []],
@@ -3415,7 +3415,7 @@ export default () => {
 								lib: {
 									character: {
 										re_sp_zhugeliang: ["male", "shu", 3, ["tianbian", "jyzongshi", "xinfu_guolun"], []],
-										re_zhangzhang: ["male", "wu", 3, ["zhuandui", "tiaoxin", "guzheng"], []],
+										re_zhangzhang: ["male", "wu", 3, ["zhuandui", "tiaoxin", "guzheng"], ["name:张|昭-张|纮"]],
 										guyong: ["male", "wu", 3, ["qiaoshui", "qicai", "bingyi"], []],
 										re_lusu: ["male", "wu", 3, ["qingzhongx", "shuimeng"], []],
 									},
@@ -3436,7 +3436,7 @@ export default () => {
 										yj_jushou: ["male", "qun", 3, ["mingce", "jianyan", "shibei"], []],
 										re_caocao: ["male", "wei", 4, ["miji", "beige", "feiying"], []],
 										jsp_guanyu: ["male", "wei", 4, ["nuzhan", "jianchu", "new_rewusheng"], []],
-										re_yanwen: ["male", "qun", 4, ["shuangxiong", "zhanyi", "zhichi"], []],
+										re_yanwen: ["male", "qun", 4, ["shuangxiong", "zhanyi", "zhichi"], ["name:颜|良-文|丑"]],
 									},
 									translate: {
 										yj_jushou: "白马沮授",
@@ -3453,7 +3453,7 @@ export default () => {
 								lib: {
 									character: {
 										re_lingtong: ["male", "wu", 4, ["xuanfeng", "zishou", "tiaoxin"], []],
-										re_lidian: ["male", "wei", 3, ["weijing", "wangxi", "zhuandui"], []],
+										re_lidian: ["male", "wei", 3, ["weijing", "wangxi", "zhuandui"], ["die:lidian"]],
 										re_zhangliao: ["male", "wei", 3, ["retuxi", "mashu", "reyingzi", "xinpojun"], []],
 										re_ganning: ["male", "wu", 5, ["lizhan", "jiang", "zhenwei"], []],
 									},

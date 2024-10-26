@@ -100,6 +100,4 @@ export default {
 	"#olsbshishou6": "拔剑四顾，诸位识得我袁本初？",
 	"#ol_sb_yuanshao:die": "众人合而无力，徒负大义也……",
 	"#ol_sb_yuanshao2:die": "袁氏凋零，皆我一人之罪……",
-	"#ol_yufan:die": "唉，主公不能容我啊！",
-	"#ol_jianyong:die": "此景竟无言以对……",
 };
