@@ -6651,6 +6651,16 @@ export class Library {
 					frequent: true,
 					intro: "读取剪贴板以解析邀请链接自动加入联机房间",
 				},
+				check_versionCode: {
+					name: "禁止不同版本玩家进房",
+					init: false,
+					intro: "禁止与自己版本不同的玩家进入房间",
+				},
+				check_extension: {
+					name: "禁止扩展玩家进房",
+					init: false,
+					intro: "禁止开启了扩展的的玩家进入房间",
+				},
 				reset_banBlacklist: {
 					name: "重置黑名单",
 					onclick() {
@@ -12309,6 +12319,12 @@ export class Library {
 					this.send("denied", "version");
 					lib.node.clients.remove(this);
 					this.closed = true;
+				} else if (get.config("check_versionLocal", "connect") && config.versionLocal != lib.version) {
+					this.send("denied", "version");
+					lib.node.clients.remove(this);
+					this.closed = true;
+				} else if (get.config("check_extension", "connect") && config.extension) {
+					this.send("denied", "extension");
 				} else if (!_status.waitingForPlayer) {
 					if (!config.nickname) {
 						this.send("denied", "banned");
@@ -12620,6 +12636,8 @@ export class Library {
 						onlineKey: game.onlineKey,
 						avatar: lib.config.connect_avatar,
 						nickname: get.connectNickname(),
+						versionLocal: lib.version,
+						extension: lib.config.extensions.some(ext => lib.config[`extension_${ext}_enable`]),
 					},
 					lib.config.banned_info
 				);
@@ -13359,6 +13377,16 @@ export class Library {
 							setTimeout(game.resume, 500);
 						}
 						break;
+					case "extension":
+						if(confirm('加入失败：房间禁止使用扩展！是否关闭所有扩展？')){
+							let libexts = lib.config.extensions;
+							for(let i=0;i<libexts.length;i++){
+								game.saveConfig("extension_" + libexts[i] + "_enable",false);
+							}
+						}
+						break;
+					default: 
+						alert(reason);	//其它原因直接弹窗显示
 				}
 				game.ws.close();
 				if (_status.connectDenied) {
