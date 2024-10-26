@@ -2033,7 +2033,7 @@ const skills = {
 	},
 	//虞翻
 	olzongxuan: {
-		audio: "rezongxuan",
+		audio: 2,
 		trigger: { global: ["loseAfter", "loseAsyncAfter"] },
 		filter(event, player) {
 			if (event.type != "discard" || event.getlx === false) return false;
@@ -2097,8 +2097,7 @@ const skills = {
 		},
 	},
 	olzhiyan: {
-		audio: "zhiyan",
-		audioname: ["re_yufan"],
+		audio: 2,
 		trigger: { global: "phaseJieshuBegin" },
 		filter(event, player) {
 			return event.player == player || event.player == player.getPrevious();

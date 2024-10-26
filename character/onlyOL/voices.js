@@ -1,4 +1,9 @@
 export default {
+	"#olzongxuan1": "易字从日下月，此乃自然之理。",
+	"#olzongxuan2": "笔著太玄十四卷，继往圣之学。",
+	"#olzhiyan1": "尔降虏，何敢与吾君齐马首乎！",
+	"#olzhiyan2": "当闭反开，当开反闭，匹夫何故反复？",
+	"#ol_yufan:die": "彼皆死人，何语神仙？",
 	"#olsbliwen1": "伐竹筑学宫，大庇天下士子。",
 	"#olsbliwen2": "学而不厌，诲人不倦，何有于我哉。",
 	"#olsbzhengyi1": "保纳舍藏者，融也，当坐之。",
