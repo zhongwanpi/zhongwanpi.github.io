@@ -1,4 +1,5 @@
 const characters = {
+	pangfengyi: ["female", "shu", 3, ["dcyitong", "dcpeiniang"]],
 	dc_sb_huanggai: ["male", "wu", 4, ["dcsblieji", "dcsbquzhou"]],
 	dc_sb_chenlin: ["male", "qun", 3, ["dcsbyaozuo", "dcsbzhuanwen"]],
 	wu_huangfusong: ["male", "qun", 4, ["dcchaozhen", "dclianjie", "dcjiangxian"], ["name:皇甫|嵩"]],

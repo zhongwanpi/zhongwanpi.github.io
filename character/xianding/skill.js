@@ -3,6 +3,120 @@ import cards from "../sp2/card.js";
 
 /** @type { importCharacterConfig['skill'] } */
 const skills = {
+	//庞凤衣
+	dcyitong: {
+		trigger: {
+			global: "phaseBefore",
+			player: "enterGame",
+			target: "useCardToTargeted",
+		},
+		filter(event, player, name) {
+			const suits = player.getStorage("dcyitong");
+			if (name === "useCardToTargeted") {
+				if (!suits.includes(get.suit(event.card))) return false;
+				return (
+					game
+						.getGlobalHistory("everything", evt => {
+							return evt.name === "useCard" && evt.targets.includes(player);
+						})
+						.indexOf(event.getParent()) === 0 && [1, 2, 3].includes(suits.length)
+				);
+			}
+			return suits.length < 4 && (event.name !== "phase" || game.phaseNumber === 0);
+		},
+		forced: true,
+		async content(event, trigger, player) {
+			const suits = lib.suit
+				.filter(suit => {
+					if (event.triggername === "useCardToTargeted") return suit !== get.suit(trigger.card);
+					return !player.getStorage("dcyitong").includes(suit);
+				})
+				.slice()
+				.reverse();
+			if (event.triggername === "useCardToTargeted") {
+				let gains = [];
+				for (const suit of suits) {
+					const card = get.cardPile(card => get.suit(card) === suit);
+					if (card) gains.push(card);
+				}
+				if (gains.length) await player.gain(gains, "gain2");
+			} else {
+				const result =
+					suits.length > 1
+						? await player
+								.chooseControl(suits)
+								.set("ai", () => {
+									return get.event().controls.randomGet();
+								})
+								.set("prompt", "异瞳：请记录一个花色")
+								.forResult()
+						: { control: suits[0] };
+				const suit = result.control;
+				if (suit) {
+					player.markAuto("dcyitong", [suit]);
+					player.addTip("dcyitong", get.translation("dcyitong") + player.getStorage("dcyitong").reduce((str, suit) => str + get.translation(suit), ""));
+				}
+			}
+		},
+		onremove(player, skill) {
+			delete player.storage[skill];
+			player.removeTip(skill);
+		},
+		intro: { content: "已记录$花色" },
+		ai: {
+			effect: {
+				target(card, player, target) {
+					if (get.itemtype(player) !== "player") return 1;
+					if (target.getStorage("dcyitong").includes(get.suit(card)) || target.hasHistory("gain", evt => evt.getParent().name === "dcyitong")) return 1;
+					const name = get.name(card);
+					if (get.tag(card, "lose") || name === "huogong" || name === "juedou" || name === "tiesuo") return [1, 3];
+					if (!target.hasFriend()) return 1;
+					return [1, 2.4];
+				},
+			},
+		},
+	},
+	dcpeiniang: {
+		mod: {
+			cardUsable(card) {
+				if (card?.storage?.dcpeiniang) return Infinity;
+			},
+		},
+		enable: "chooseToUse",
+		filterCard(card, player) {
+			return player.getStorage("dcyitong").includes(get.suit(card));
+		},
+		viewAs: {
+			name: "jiu",
+			storage: { dcpeiniang: true },
+		},
+		prompt() {
+			const player = get.player();
+			return "将" + player.getStorage("dcyitong").reduce((str, suit) => str + get.translation(suit), "") + "牌当作【酒】使用";
+		},
+		check(card, player) {
+			return 0 + lib.skill.oljiuchi?.check?.(card, player);
+		},
+		precontent() {
+			event.getParent().addCount = false;
+		},
+		position: "hes",
+		ai: {
+			jiuOther: true,
+			combo: "dcyitong",
+		},
+		trigger: { source: "recoverBegin" },
+		filter(event, player) {
+			if (event.name === "chooseToUse") return player.hasCard(card => lib.skill.dcpeiniang.filterCard(card, player), "hes");
+			return event.getParent()?.name === "jiu" && event.num + event.player.hp < 1;
+		},
+		forced: true,
+		locked: false,
+		logTarget: "player",
+		content() {
+			trigger.num = 1 - trigger.player.hp;
+		},
+	},
 	//谋黄盖
 	//时代的♿otto♿
 	dcsblieji: {
@@ -4640,7 +4754,7 @@ const skills = {
 			player
 				.when({
 					global: "eventNeutralized",
-					target: ["useCardToEnd", "useCardToExcluded", "useCardToIgnored"],
+					target: ["useCardToBegin", "useCardToExcluded", "useCardToIgnored"],
 				})
 				.filter((evt, _, name) => {
 					if (evt.getParent().targets.length <= 1) return false;
