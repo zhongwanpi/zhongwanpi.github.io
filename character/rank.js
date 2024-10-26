@@ -271,6 +271,7 @@ window.noname_character_rank = {
 		"wolongfengchu",
 		"yanghuiyu",
 		"liubian",
+		"pangfengyi",
 		"panshu",
 		"caochun",
 		"xin_caifuren",
@@ -733,6 +734,7 @@ window.noname_character_rank = {
 		"yue_diaochan",
 	],
 	bp: [
+		"dc_sb_huanggai",
 		"scl_zhenji",
 		"scl_maliang",
 		"scl_sunhanhua",
@@ -2054,6 +2056,7 @@ window.noname_character_rank = {
 			"jd_simayan",
 		],
 		epic: [
+			"dc_sb_huanggai",
 			"yy_quyi",
 			"yy_yuanshao",
 			"yy_simayi",
@@ -2243,6 +2246,7 @@ window.noname_character_rank = {
 			"ns_yuanxi",
 			"ns_jiaxu",
 			"liubian",
+			"pangfengyi",
 			"simashi",
 			"jin_simayi",
 			"jin_zhangchunhua",
