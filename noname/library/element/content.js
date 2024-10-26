@@ -1636,7 +1636,7 @@ export const Content = {
 					elementOffsetX = target.getBoundingClientRect().x / game.documentZoom - touchStartX;
 					elementOffsetY = target.getBoundingClientRect().y / game.documentZoom - touchStartY;
 					currentElement = target;
-					e.stopPropagation();
+					// e.stopPropagation();
 				}
 			};
 
