@@ -304,7 +304,6 @@ const characters = {
 		sex: "female",
 		group: "wu",
 		hp: 3,
-		maxHp: 4,
 		names: "孙|鲁班-孙|鲁育",
 		skills: ["jsrgdaimou", "jsrgfangjie"],
 	},
