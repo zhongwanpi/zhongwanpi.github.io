@@ -5425,6 +5425,9 @@ const skills = {
 						"草诏：请选择一个基本牌或锦囊牌",
 						[
 							lib.inpile.filter(i => {
+								if (!["basic", "trick"].includes(get.type(i))) {
+									return false;
+								}
 								return !player.getStorage("jdcaozhao").includes(i);
 							}),
 							"vcard",
