@@ -4,10 +4,10 @@ import cards from "../sp2/card.js";
 /** @type { importCharacterConfig['skill'] } */
 const skills = {
 	//谋黄盖
-	//时代的otto
+	//时代的♿otto♿
 	dcsblieji: {
 		audio: 2,
-		trigger: { player: "useCard" },
+		trigger: { player: "useCardAfter" },
 		filter(event, player) {
 			return get.type2(event.card) === "trick" && player.hasCard(card => get.tag(card, "damage") > 0.5, "h");
 		},
@@ -124,12 +124,12 @@ const skills = {
 					ui.arena.classList.remove("thrownhighlight");
 				}, videoId);
 				game.addVideo("judge2", null, videoId);
-				if (card.name === "sha" && player.hasUseTarget(card)) {
+				if (card.name === "sha") {
 					if (cards.length) {
 						game.broadcastAll(() => ui.clear());
 						await game.cardsDiscard(cards);
 					}
-					await player.chooseUseTarget(card, true, false);
+					if (player.hasUseTarget(card)) await player.chooseUseTarget(card, true, false);
 					break;
 				} else {
 					cards.add(card);
@@ -4633,16 +4633,17 @@ const skills = {
 		forced: true,
 		logTarget: "player",
 		async content(event, trigger, player) {
-			const evt = trigger.getParent();
-			evt.targets = [player, ...evt.targets.remove(player)];
-			evt.triggeredTargets4 = [player, ...evt.triggeredTargets4.remove(player)];
+			const evtx = trigger.getParent();
+			trigger.targets = [player, ...trigger.targets.remove(player)];
+			evtx.targets = [player, ...evtx.targets.remove(player)];
+			evtx.triggeredTargets4 = [player, ...evtx.triggeredTargets4.remove(player)];
 			player
 				.when({
 					global: "eventNeutralized",
 					target: ["useCardToEnd", "useCardToExcluded", "useCardToIgnored"],
 				})
-				.filter((evt, current, name) => {
-					if (trigger.targets.length <= 1) return false;
+				.filter((evt, _, name) => {
+					if (evt.getParent().targets.length <= 1) return false;
 					if (name === "evtNeutralized") {
 						if (evt._neutralize_event.type != "card" || evt.type != "card") return false;
 						return evt._neutralize_event.card === trigger.card;
@@ -4650,9 +4651,8 @@ const skills = {
 					return evt.getParent() == trigger.getParent();
 				})
 				.then(() => {
-					player.draw(num);
-				})
-				.vars({ num: trigger.targets.length - 1 });
+					player.draw(trigger.getParent().targets.length - 1);
+				});
 		},
 	},
 	dczengou: {
