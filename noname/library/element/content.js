@@ -9698,7 +9698,7 @@ export const Content = {
 							top.unshift(cards.shift());
 						}
 						while (cards.length) {
-							if (get.value(cards[0], target) > 6 == att > 0) top.unshift(cards.shift());
+							if (get.value(cards[0], target) > 6 == att > 0) top.push(cards.shift());
 							else break;
 						}
 						return [top, cards];
@@ -9707,7 +9707,7 @@ export const Content = {
 							return get.value(b, target) - get.value(a, target);
 						});
 						while (cards.length) {
-							if (get.value(cards[0], target) > 6) top.unshift(cards.shift());
+							if (get.value(cards[0], target) > 6) top.push(cards.shift());
 							else break;
 						}
 						return [top, cards];
