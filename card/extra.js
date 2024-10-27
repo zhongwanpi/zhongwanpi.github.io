@@ -1017,7 +1017,7 @@ game.import("card", function () {
 							const lostCards = [];
 							evt.es.forEach(card => {
 								const VEquip = evt.vcard_map.get(card);
-								if (VEquip.name === "baiyin") lostCards.add(VEquip);
+								if (VEquip?.name === "baiyin") lostCards.add(VEquip);
 							});
 							return lostCards;
 						},
