@@ -3166,7 +3166,7 @@ export class Create {
 					const successful = document.execCommand("copy");
 					if (!successful) {
 						console.error("Unable to copy using execCommand");
-						game.promises.prompt(`###prompt标题分享内容复制失败，请自行复制以下内容###${text}`);
+						game.promises.prompt(`###分享内容复制失败，请自行复制以下内容###${text}`, true);
 					}
 					else {
 						game.alert("分享内容复制成功");
