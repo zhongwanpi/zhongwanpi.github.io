@@ -1,5 +1,5 @@
 window.noname_asset_list = [
-	"v1.10.15.1",
+	"v1.10.16",
 	"audio/background/aozhan_chaoming.mp3",
 	"audio/background/aozhan_online.mp3",
 	"audio/background/aozhan_rewrite.mp3",
