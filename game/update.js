@@ -1,5 +1,5 @@
 window.noname_update = {
-	version: "1.10.6",
+	version: "1.10.16",
 	update: "NULL", //新版本更新文件较多，直接强制进行全量更新
 	changeLog: [
 		"大量的新武将",
