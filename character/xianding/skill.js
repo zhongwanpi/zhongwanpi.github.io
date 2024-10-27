@@ -67,7 +67,7 @@ const skills = {
 			effect: {
 				target(card, player, target) {
 					if (get.itemtype(player) !== "player") return 1;
-					if (target.getStorage("dcyitong").includes(get.suit(card)) || target.hasHistory("gain", evt => evt.getParent().name === "dcyitong")) return 1;
+					if (!target.getStorage("dcyitong").includes(get.suit(card)) || target.hasHistory("gain", evt => evt.getParent().name === "dcyitong")) return 1;
 					const name = get.name(card);
 					if (get.tag(card, "lose") || name === "huogong" || name === "juedou" || name === "tiesuo") return [1, 3];
 					if (!target.hasFriend()) return 1;
